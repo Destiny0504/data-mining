@@ -63,7 +63,7 @@ def classify_student(students):
                 if(student[itr]) != 1:
                     good_student = False
                     break
-            elif itr == 9 :
+            elif itr == 8 :
                 if(student[itr]) != 1:
                     good_student = False
                     break

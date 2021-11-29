@@ -10,13 +10,13 @@ def decision_tree(students, type, test_students, test_type):
     clf = tree.DecisionTreeClassifier()
     clf = clf.fit(students, type)
     tree.plot_tree(clf, filled = True, rounded = True)
-    plot.show()
+    #plot.show()
     correct = 0
     predicted = clf.predict(test_students)
     for itr in range(len(predicted)):
         if predicted[itr] == test_type[itr]:
             correct += 1
-    print(correct / len(test_students))
+    print(f'precision : {correct / len(test_students)}')
 
 def random_forest(students, type, test_students, test_type):
     clf = RandomForestClassifier(max_depth=2, random_state=0)
@@ -26,7 +26,7 @@ def random_forest(students, type, test_students, test_type):
     for itr in range(len(predicted)):
         if predicted[itr] == test_type[itr]:
             correct += 1
-    print(correct / len(test_students))
+    print(f'precision : {correct / len(test_students)}')
 
 def Gaussian_naieve_bayes(students, type, test_students, test_type):
     predicted = GaussianNB().fit(students, type).predict(test_students)
@@ -34,13 +34,13 @@ def Gaussian_naieve_bayes(students, type, test_students, test_type):
     for itr in range(len(predicted)):
         if predicted[itr] == test_type[itr]:
             correct += 1
-    print(correct / len(test_students))
+    print(f'precision : {correct / len(test_students)}')
 
 if __name__ =='__main__':
     student_list = []
     test_list =[]
     find = 0
-    #np.random.seed(12)
+    np.random.seed(7098)
     for i in range(10000):
         student_list.append(data_create.create_student())
     student_type = data_create.classify_student(student_list)
