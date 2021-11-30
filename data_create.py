@@ -57,7 +57,7 @@ def create_student():
 def classify_student(students):
     students_type = []
     for student in students:
-        good_student = 20
+        good_student = True
         for itr in range(len(student)):
             if itr < 2 :
                 if(student[itr]) != 1:

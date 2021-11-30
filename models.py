@@ -16,6 +16,9 @@ def decision_tree(students, type, test_students, test_type):
     for itr in range(len(predicted)):
         if predicted[itr] == test_type[itr]:
             correct += 1
+        else:
+            print(test_students[itr])
+
     print(f'precision : {correct / len(test_students)}')
 
 def random_forest(students, type, test_students, test_type):
@@ -40,13 +43,13 @@ if __name__ =='__main__':
     student_list = []
     test_list =[]
     find = 0
-    np.random.seed(7098)
+    np.random.seed(728)
     for i in range(10000):
         student_list.append(data_create.create_student())
     student_type = data_create.classify_student(student_list)
     for i in range(100):
         test_list.append(data_create.create_student())
-    test_student_type = data_create.classify_student(student_list)
+    test_student_type = data_create.classify_student(test_list)
     for itr in range(len(student_type)):
         if student_type[itr] == 1:
             find += 1
